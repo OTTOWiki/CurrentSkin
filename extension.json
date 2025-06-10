@@ -1,0 +1,23 @@
+{
+	"name": "CurrentSkin",
+	"version": "1.0.0",
+	"license-name": "GPL-2.0-or-later",
+	"author": "OctoberSama with ChatGPT&DeepSeek",
+	"url": "https://github.com/ottowiki/CurrentSkin",
+	"description": "Provides magic word {{CURRENTSKIN}} to output current user's skin",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
+	"AutoloadClasses": {
+		"CurrentSkin": "CurrentSkin_body.php"
+	},
+	"ExtensionMessagesFiles": {
+		"CurrentSkinMagic": "CurrentSkin.i18n.magic.php"
+	},
+	"Hooks": {
+		"MagicWordwgVariableIDs": "CurrentSkin::onMagicWordwgVariableIDs",
+		"ParserGetVariableValueSwitch": "CurrentSkin::onParserGetVariableValueSwitch"
+	},
+	"manifest_version": 2
+}
