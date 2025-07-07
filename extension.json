@@ -10,7 +10,7 @@
 		"MediaWiki": ">= 1.35.0"
 	},
 	"AutoloadClasses": {
-		"CurrentSkin": "CurrentSkin_body.php"
+		"CurrentSkin": "CurrentSkin.php"
 	},
 	"ExtensionMessagesFiles": {
 		"CurrentSkinMagic": "CurrentSkin.i18n.magic.php"
