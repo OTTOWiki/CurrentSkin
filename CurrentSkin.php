@@ -32,9 +32,4 @@ class CurrentSkin {
 		}
 		return true;
 	}
-}			
-			$ret = $skin;
-		}
-		return true;
-	}
 }
