@@ -2,7 +2,7 @@
 class CurrentSkin {
 
 	/**
-	 * 注册魔术字ID
+	 * Register magic word ID
 	 */
 	public static function onMagicWordwgVariableIDs( &$variableIds ) {
 		$variableIds[] = 'CURRENTSKIN';
@@ -10,7 +10,7 @@ class CurrentSkin {
 	}
 
 	/**
-	 * 处理魔术字逻辑 - 使用正确的UserOptionsLookup服务
+	 * Magic word processing logic
 	 */
 	public static function onParserGetVariableValueSwitch(
 		$parser,
@@ -20,21 +20,19 @@ class CurrentSkin {
 		$frame
 	) {
 		if ( $magicWordId === 'CURRENTSKIN' ) {
-			// 获取服务容器
 			$services = \MediaWiki\MediaWikiServices::getInstance();
-			
-			// 获取用户选项服务
 			$userOptionsLookup = $services->getUserOptionsLookup();
-			
-			// 获取当前用户
 			$user = $parser->getUserIdentity();
-			
-			// 获取当前皮肤
 			$skin = $userOptionsLookup->getOption( $user, 'skin' );
 			
-			// 禁用页面缓存（因内容按用户变化）
+			// Disable page caching (user-specific data)
 			$parser->getOutput()->updateCacheExpiry(0);
 			
+			$ret = $skin;
+		}
+		return true;
+	}
+}			
 			$ret = $skin;
 		}
 		return true;
